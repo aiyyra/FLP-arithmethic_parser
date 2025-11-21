@@ -106,19 +106,19 @@ parseExpr
 - [x] Implement using `(**)` operator
 - [x] Add error handling for edge cases
 
-**Step 5: Testing** (Tests.hs) ⚠️ PENDING
+**Step 5: Testing** (Tests.hs) ✅ COMPLETED
 
 - [x] Manual testing complete (all tests pass)
-- [ ] Add exponentiation test cases to Tests.hs
-- [ ] Verify right-associativity in test suite
-- [ ] Verify precedence in test suite
-- [ ] Test edge cases in test suite
+- [x] Add exponentiation test cases to Tests.hs (14 test cases)
+- [x] Verify right-associativity in test suite (2 test cases)
+- [x] Verify precedence in test suite (4 test cases)
+- [x] Test edge cases in test suite (3 test cases)
 
 **Step 6: Documentation** ✅ COMPLETED
 
-- [x] Created FeatureExtensionDetailed.md (453 lines)
+- [x] Created FeatureExtensionDetailed.md (893 lines - both extensions)
 - [x] Document design decisions (right-associativity, edge cases)
-- [ ] Add examples to README (pending)
+- [x] Add examples to README (comprehensive examples included)
 
 ---
 
@@ -339,22 +339,22 @@ eval (Sqrt a) = do
 - [x] Add eval case for Sqrt with negative number check
 - [x] Test edge cases
 
-**Step 5: Testing** (Tests.hs) ✅ MANUAL TESTING COMPLETE
+**Step 5: Testing** (Tests.hs) ✅ COMPLETED
 
-- [x] Add basic function tests (all passed)
-- [x] Add precedence tests (all passed)
-- [x] Add nested expression tests (all passed)
-- [x] Add nested function tests (all passed)
-- [x] Add edge case tests (all passed)
-- [ ] Add to Tests.hs file (pending)
+- [x] Add basic function tests (7 test cases - all passed)
+- [x] Add precedence tests (4 test cases - all passed)
+- [x] Add nested expression tests (included in complex tests)
+- [x] Add nested function tests (2 test cases - all passed)
+- [x] Add edge case tests (2 test cases - all passed)
+- [x] Add to Tests.hs file (15 function test cases total)
 
-**Step 6: Documentation** ⚠️ PENDING
+**Step 6: Documentation** ✅ COMPLETED
 
-- [ ] Update FeatureExtensionDetailed.md with Extension 2
-- [ ] Document tokenizer changes
-- [ ] Document parser changes
-- [ ] Document evaluator changes
-- [ ] Add test results
+- [x] Update FeatureExtensionDetailed.md with Extension 2 (448 lines added)
+- [x] Document tokenizer changes (function name recognition)
+- [x] Document parser changes (AST and function parsing)
+- [x] Document evaluator changes (function evaluation)
+- [x] Add test results (comprehensive test coverage documented)
 
 ---
 

@@ -27,3 +27,17 @@ executable evaluator
     default-extensions: ScopedTypeVariables
                       , ImportQualifiedPost
 
+test-suite evaluator-tests
+    import:           warnings
+    type:             exitcode-stdio-1.0
+    main-is:          Tests.hs
+    other-modules:    Tokenizer
+                    , Parser
+                    , Evaluator
+    build-depends:    base ^>=4.18.2.1
+                    , HUnit ^>=1.6.2.0
+    hs-source-dirs:   .
+    default-language: Haskell2010
+    default-extensions: ScopedTypeVariables
+                      , ImportQualifiedPost
+

@@ -283,7 +283,68 @@ Changes made by agent:
     - Avoids conflicts from IDE-specific files
     - Standard practice for Haskell projects
 
-12. Updated README.md with comprehensive Git clone and build instructions
+12. Converted Tests.hs to use HUnit library (as required by assignment)
+
+    **Renamed old Tests.hs:**
+
+    - Moved Tests.hs to Tests.hs.OLD (backup of custom test runner)
+
+    **Created new Tests.hs with HUnit (296 lines):**
+
+    - Imported Test.HUnit library
+    - Created helper function evalExpr for testing
+    - Created helper function toLowerChar for case-insensitive string matching
+    - Implemented 18 test suites with 59 total test cases:
+      1. Basic Arithmetic (4 tests)
+      2. Operator Precedence (4 tests)
+      3. Division by Zero (2 tests)
+      4. Floating Point Support (3 tests)
+      5. Negative Numbers (4 tests)
+      6. Parentheses (3 tests)
+      7. Empty Input Validation (1 test)
+      8. Exponentiation Basic (5 tests)
+      9. Exponentiation Right-Associativity (2 tests)
+      10. Exponentiation Precedence (4 tests)
+      11. Exponentiation Edge Cases (3 tests)
+      12. Basic Functions (7 tests)
+      13. Function Precedence (4 tests)
+      14. Nested Functions (2 tests)
+      15. Function Edge Cases (2 tests)
+      16. Complex Expressions (5 tests)
+      17. Tokenization Errors (2 tests)
+      18. Parse Errors (2 tests)
+    - Created main function with formatted test output
+    - All tests use HUnit's TestCase, assertEqual, assertBool
+
+    **Updated evaluator.cabal:**
+
+    - Added test-suite section "evaluator-tests"
+    - Type: exitcode-stdio-1.0
+    - Main file: Tests.hs
+    - Added HUnit dependency: HUnit ^>=1.6.2.0
+    - Configured same modules and extensions as executable
+
+    **Test execution results:**
+
+    - Successfully built with Cabal ✅
+    - Downloaded and installed HUnit library (1.6.2.0)
+    - All 59 test cases passed ✅
+    - 0 failures, 0 errors
+    - Tests cover:
+      - All 12 bug fixes from Part 1
+      - Exponentiation extension (basic, associativity, precedence, edge cases)
+      - Function extension (basic, precedence, nesting, edge cases)
+      - Complex expressions combining all features
+      - Error handling (tokenization, parsing, evaluation)
+
+    **Test output format:**
+
+    - Running HUnit Tests for Arithmetic Expression Evaluator
+    - Progress indicator showing cases tried
+    - Summary: Tests run, Failures, Errors
+    - Final status: "✓ All tests passed!" or "✗ Some tests failed."
+
+13. Updated README.md with comprehensive Git clone and build instructions
 
     **Added Quick Start section:**
 
@@ -351,3 +412,80 @@ Changes made by agent:
     - Acknowledgments section
 
     **Total README.md: 358 lines** (comprehensive guide for Git users)
+
+14. Verified project state and updated documentation (Current Session)
+
+    **Ran comprehensive tests:**
+
+    - Executed `cabal test` - All 59 HUnit test cases passed ✅
+    - Manual testing of basic arithmetic: `2+3` → 5.0 ✅
+    - Manual testing of exponentiation: `2^3^2` → 512.0 (right-associative) ✅
+    - Manual testing of functions: `sqrt(abs(-16))` → 4.0 ✅
+    - Manual testing of complex expressions: `sin(0)+2*3` → 6.0 ✅
+    - Manual testing of error handling:
+      - Division by zero: `5/0` → Error ✅
+      - Negative sqrt: `sqrt(-1)` → Error ✅
+    - Additional tests:
+      - Parentheses with exponentiation: `(2+3)^2` → 25.0 ✅
+      - Complex nested functions: `2*sqrt(16)+abs(-3)` → 11.0 ✅
+      - Operator precedence: `10-4*2` → 2.0 ✅
+      - Negative numbers: `(-2)^2` → 4.0 ✅
+
+    **Updated agent-log/agent.md:**
+
+    - Marked Test Cases Deliverable as COMPLETED
+    - Updated Setup Phase (HUnit installed via Cabal)
+    - Updated Testing Phase as COMPLETED (59/59 tests passing)
+    - Resolved Critical Issue #2 (HUnit library now used)
+    - Resolved Minor Issue #4 (Cabal configuration added)
+    - Updated Recommendations for Completion (marked items as completed)
+    - Added comprehensive "Current Project Status" section with:
+      - Completed Components summary
+      - Remaining Tasks list
+      - Project Statistics
+
+    **Updated agent-log/Part2.md:**
+
+    - Marked Extension 1 Testing as COMPLETED (14 test cases)
+    - Marked Extension 1 Documentation as COMPLETED
+    - Marked Extension 2 Testing as COMPLETED (15 test cases)
+    - Marked Extension 2 Documentation as COMPLETED
+
+    **Project Status Summary:**
+
+    - ✅ Part 1: COMPLETED (12 bugs fixed, 4 modules, 6 FP principles)
+    - ✅ Part 2: COMPLETED (2 extensions fully implemented)
+    - ✅ Testing: COMPLETED (59 HUnit test cases, all passing)
+    - ✅ Build System: COMPLETED (Cabal fully configured)
+    - ✅ Documentation: COMPLETED (2,220+ lines)
+    - 🔴 Screenshots: PENDING (3-5 CLI screenshots needed)
+    - 🔴 Final Submission: PENDING (zip file preparation)
+
+    **Test Results:**
+
+    - Total test cases: 59
+    - Passed: 59
+    - Failed: 0
+    - Errors: 0
+    - Success rate: 100%
+
+    **Test Coverage:**
+
+    - Basic Arithmetic: 4 tests ✅
+    - Operator Precedence: 4 tests ✅
+    - Division by Zero: 2 tests ✅
+    - Floating Point: 3 tests ✅
+    - Negative Numbers: 4 tests ✅
+    - Parentheses: 3 tests ✅
+    - Empty Input: 1 test ✅
+    - Exponentiation Basic: 5 tests ✅
+    - Exponentiation Right-Associativity: 2 tests ✅
+    - Exponentiation Precedence: 4 tests ✅
+    - Exponentiation Edge Cases: 3 tests ✅
+    - Basic Functions: 7 tests ✅
+    - Function Precedence: 4 tests ✅
+    - Nested Functions: 2 tests ✅
+    - Function Edge Cases: 2 tests ✅
+    - Complex Expressions: 5 tests ✅
+    - Tokenization Errors: 2 tests ✅
+    - Parse Errors: 2 tests ✅
