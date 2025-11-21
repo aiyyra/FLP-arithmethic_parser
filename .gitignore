@@ -1,0 +1,57 @@
+# Haskell compiled files
+*.hi
+*.o
+*.exe
+*.so
+*.dylib
+*.dll
+
+# GHC
+.ghc.environment.*
+
+# Cabal
+dist/
+dist-*/
+cabal-dev
+*.cabal.sandbox.config
+.cabal-sandbox/
+cabal.project.local
+cabal.project.local~
+.HTF/
+.ghc.environment.*
+
+# Stack
+.stack-work/
+stack.yaml.lock
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.code-workspace
+
+# Temporary files
+*.tmp
+*.bak
+*.log
+
+# Build artifacts
+evaluator
+solution/evaluator
+solution/dist-newstyle/
+
+# Test outputs
+*.tix
+.hpc/
+
+# Documentation build
+.haddock/
+docs/_build/
+
+# OS specific
+Thumbs.db
+.directory
+

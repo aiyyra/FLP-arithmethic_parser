@@ -192,3 +192,162 @@ Changes made by agent:
      - Whitespace handling
    - Project Structure diagram
    - License information
+
+10. Set up Cabal build system for the project
+
+    **Created solution/evaluator.cabal:**
+
+    - Cabal version: 3.0
+    - Package name: evaluator version 1.0.0
+    - Executable configuration:
+      - Main file: Main.hs
+      - Other modules: Tokenizer, Parser, Evaluator
+      - Dependencies: base ^>=4.18.2.1 (only standard library)
+      - Language extensions: ScopedTypeVariables, ImportQualifiedPost
+      - GHC options: -Wall (all warnings enabled)
+    - Build type: Simple
+    - Source directory: . (current directory)
+    - Default language: Haskell2010
+
+    **Fixed Main.hs for Cabal compatibility:**
+
+    - Added ScopedTypeVariables language extension
+    - Fixed type signature in exception handler
+    - Maintained all existing functionality
+
+    **Created agent-log/cabal.md (464 lines):**
+
+    - What is Cabal? (explanation and benefits)
+    - Prerequisites (checking installation, GHC version)
+    - Project structure overview
+    - Understanding the .cabal file (detailed explanation of each section)
+    - Basic Cabal commands:
+      - cabal update (update package index)
+      - cabal build (compile project)
+      - cabal run (run executable)
+      - cabal clean (remove build artifacts)
+      - cabal install (install system-wide)
+    - Advanced commands (optimizations, verbose mode, rebuild)
+    - Cabal workflow (typical development cycle)
+    - Understanding build output (directory structure)
+    - Comparison: Manual GHC vs Cabal (pros/cons)
+    - Common issues and solutions (4 common problems)
+    - Best practices (5 recommendations)
+    - Quick reference table (8 common tasks)
+    - Summary and benefits
+
+    **Build and test results:**
+
+    - Successfully built with Cabal ✅
+    - All tests passed:
+      - cabal run evaluator -- "2+3" → 5.0 ✅
+      - cabal run evaluator -- "2^3^2" → 512.0 ✅
+      - cabal run evaluator -- "sqrt(abs(-4))" → 2.0 ✅
+    - Build artifacts stored in dist-newstyle/
+    - Warnings about variable shadowing (non-critical)
+
+11. Created .gitignore files for version control
+
+    **Created .gitignore in root directory (60 lines):**
+
+    - Haskell compiled files (_.hi, _.o, _.exe, _.so, _.dylib, _.dll)
+    - GHC environment files (.ghc.environment.\*)
+    - Cabal build directories (dist/, dist-\*/, dist-newstyle/)
+    - Cabal sandbox and local config files
+    - Stack build directory (.stack-work/)
+    - IDE and editor files (.vscode/, .idea/, _.swp, _.swo, \*~)
+    - OS specific files (.DS_Store, Thumbs.db, .directory)
+    - Temporary files (_.tmp, _.bak, \*.log)
+    - Build artifacts (evaluator executables)
+    - Test outputs (\*.tix, .hpc/)
+    - Documentation build (.haddock/, docs/\_build/)
+
+    **Created solution/.gitignore (42 lines):**
+
+    - Haskell compiled files (_.hi, _.o, \*.exe)
+    - Executable (evaluator)
+    - Cabal build directories (dist/, dist-newstyle/)
+    - Cabal local config files
+    - Stack build directory (.stack-work/)
+    - GHC environment files
+    - IDE files (.vscode/, .idea/, _.swp, _.swo)
+    - Temporary files (_.tmp, _.bak)
+    - Test coverage files (\*.tix, .hpc/)
+    - OS specific files (.DS_Store, Thumbs.db)
+
+    **Purpose:**
+
+    - Prevents committing build artifacts to version control
+    - Keeps repository clean and focused on source code
+    - Reduces repository size
+    - Avoids conflicts from IDE-specific files
+    - Standard practice for Haskell projects
+
+12. Updated README.md with comprehensive Git clone and build instructions
+
+    **Added Quick Start section:**
+
+    - Git clone command
+    - Navigate to solution directory
+    - Cabal update and build commands
+    - Quick run example with output
+
+    **Expanded Getting Started section:**
+
+    - Prerequisites with version requirements
+    - Installation instructions via GHCup
+    - Git clone instructions
+
+    **Enhanced Building and Running section:**
+
+    - Method 1: Using Cabal (Recommended)
+      - Step-by-step instructions (5 steps)
+      - Update package index
+      - Build command
+      - Run command with examples
+      - Optional system-wide installation
+    - Method 2: Manual GHC Compilation
+      - Navigate to directory
+      - Compile command
+      - Run command with examples
+
+    **Added Cleaning Build Artifacts section:**
+
+    - Cabal clean command
+    - Manual cleanup for GHC builds
+
+    **Added Troubleshooting section:**
+
+    - 4 common issues with solutions
+    - "cabal: command not found"
+    - "Could not resolve dependencies"
+    - Build errors after code changes
+    - Module not found errors
+
+    **Updated Important Notes:**
+
+    - Quote expressions reminder
+    - Cabal vs Manual comparison
+    - Build artifacts location
+    - No external dependencies note
+
+    **Enhanced Project Structure:**
+
+    - Complete repository tree view
+    - All directories and key files listed
+    - File descriptions and line counts
+    - Shows relationship between directories
+
+    **Added Development section:**
+
+    - Running tests instructions
+    - Adding new features workflow
+    - Documentation references
+
+    **Enhanced License section:**
+
+    - Contributing note
+    - University attribution
+    - Acknowledgments section
+
+    **Total README.md: 358 lines** (comprehensive guide for Git users)

@@ -1,0 +1,39 @@
+# Haskell compiled files
+*.hi
+*.o
+*.exe
+
+# Executables
+evaluator
+
+# Cabal build directory
+dist/
+dist-newstyle/
+cabal.project.local
+cabal.project.local~
+
+# Stack build directory
+.stack-work/
+
+# GHC environment
+.ghc.environment.*
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.bak
+
+# Test coverage
+*.tix
+.hpc/
+
+# OS specific
+.DS_Store
+Thumbs.db
+

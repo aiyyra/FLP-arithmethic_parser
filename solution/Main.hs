@@ -1,29 +1,32 @@
+{-# LANGUAGE ScopedTypeVariables #-}
+
 module Main where
 
-import System.Environment (getArgs, getEnv)
-import Control.Exception (catch, SomeException)
+import Control.Exception (SomeException, catch)
 import Control.Monad (when)
 import Data.Char (isSpace)
-
-import Tokenizer (tokenize)
+import Evaluator qualified as Eval
 import Parser (parse)
-import qualified Evaluator as Eval
+import System.Environment (getArgs, getEnv)
+import Tokenizer (tokenize)
 
 -- Main CLI
 -- FIXES: Bug #6 (empty input validation), Bug #7 (SECRET_MODIFIER transparency)
 main :: IO ()
 main = do
   -- Get optional modifier with better error handling
-  modifier <- catch (fmap read (getEnv "SECRET_MODIFIER") :: IO Double)
-                   (\(_ :: SomeException) -> return 1.0)
-  
+  modifier <-
+    catch
+      (fmap read (getEnv "SECRET_MODIFIER") :: IO Double)
+      (\(_ :: SomeException) -> return 1.0)
+
   args <- getArgs
-  
+
   case args of
     [] -> putStrLn "Usage: evaluator \"expression\""
-    (expr:_) -> do
+    (expr : _) -> do
       let trimmed = filter (not . isSpace) expr
-      
+
       -- Validate non-empty input
       if null trimmed
         then putStrLn "Error: Empty expression"
@@ -41,5 +44,6 @@ evaluateExpression expr modifier = do
         Right result -> do
           -- Notify user if result is being modified
           when (modifier /= 1.0) $
-            putStrLn $ "Note: Result modified by SECRET_MODIFIER (" ++ show modifier ++ ")"
+            putStrLn $
+              "Note: Result modified by SECRET_MODIFIER (" ++ show modifier ++ ")"
           print (result * modifier)

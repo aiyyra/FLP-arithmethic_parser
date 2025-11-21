@@ -1,0 +1,29 @@
+cabal-version:      3.0
+name:               evaluator
+version:            1.0.0
+synopsis:           Arithmetic Expression Evaluator CLI
+description:        A command-line arithmetic expression evaluator with support for
+                    basic operations, exponentiation, and mathematical functions.
+                    Part of WID3001 Functional and Logic Programming coursework.
+license:            NONE
+author:             WID3001 Student
+maintainer:         student@example.com
+category:           Education
+build-type:         Simple
+extra-source-files: README.md
+
+common warnings
+    ghc-options: -Wall
+
+executable evaluator
+    import:           warnings
+    main-is:          Main.hs
+    other-modules:    Tokenizer
+                    , Parser
+                    , Evaluator
+    build-depends:    base ^>=4.18.2.1
+    hs-source-dirs:   .
+    default-language: Haskell2010
+    default-extensions: ScopedTypeVariables
+                      , ImportQualifiedPost
+
