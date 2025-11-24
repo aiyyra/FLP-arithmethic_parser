@@ -55,3 +55,8 @@ docs/_build/
 Thumbs.db
 .directory
 
+# temp .md except these 3 files
+*.md
+!README.md
+!BugFixesDetailed.md
+!FeatureExtensionDetailed.md
